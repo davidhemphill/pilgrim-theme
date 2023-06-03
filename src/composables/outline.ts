@@ -6,7 +6,7 @@ import type { MenuItem } from '../config'
 const PAGE_OFFSET: number = 33
 
 export function getHeaders(range: number[] = [1, 6]): MenuItem[] {
-  const headers = [...document.querySelectorAll('.VPDoc h2,h3,h4,h5,h6')]
+  const headers = [...document.querySelectorAll('.PilgrimDoc h2,h3,h4,h5,h6')]
     .filter((el: Element) => el.id && el.hasChildNodes())
     .map((el: Element): MenuItem => {
       const level: number = Number(el.tagName[1])
@@ -55,8 +55,8 @@ export function resolveHeaders(
     typeof levelsRange === 'number'
       ? [levelsRange, levelsRange]
       : levelsRange === 'deep'
-      ? [2, 6]
-      : levelsRange
+        ? [2, 6]
+        : levelsRange
 
   headers = headers.filter((h: MenuItem) => h.level >= high && h.level <= low)
 
@@ -70,7 +70,7 @@ export function resolveHeaders(
       for (let j: number = i - 1; j >= 0; j--) {
         const prev: MenuItem = headers[j]
         if (prev.level < cur.level) {
-          ;(prev.children || (prev.children = [])).push(cur)
+          ; (prev.children || (prev.children = [])).push(cur)
           continue outer
         }
       }
