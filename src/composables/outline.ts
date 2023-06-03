@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { onMounted, onUnmounted, onUpdated } from 'vue'
 import { throttleAndDebounce } from '../support/utils'
-import type { MenuItem } from "../config"
+import type { MenuItem } from '../config'
 
 const PAGE_OFFSET: number = 33
 
@@ -55,8 +55,8 @@ export function resolveHeaders(
     typeof levelsRange === 'number'
       ? [levelsRange, levelsRange]
       : levelsRange === 'deep'
-        ? [2, 6]
-        : levelsRange
+      ? [2, 6]
+      : levelsRange
 
   headers = headers.filter((h: MenuItem) => h.level >= high && h.level <= low)
 
@@ -70,7 +70,7 @@ export function resolveHeaders(
       for (let j: number = i - 1; j >= 0; j--) {
         const prev: MenuItem = headers[j]
         if (prev.level < cur.level) {
-          ; (prev.children || (prev.children = [])).push(cur)
+          ;(prev.children || (prev.children = [])).push(cur)
           continue outer
         }
       }
@@ -159,7 +159,7 @@ export function useActiveAnchor(container: Ref<HTMLElement>) {
       )
     }
 
-    const activeLink: HTMLAnchorElement = prevActiveLink
+    const activeLink: HTMLAnchorElement | null = prevActiveLink
 
     if (activeLink) {
       activeLink.classList.add('!text-blue-500')
