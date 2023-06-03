@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --shiki-color-text: #24292e;
+  --shiki-color-background: #FFF;
+  --shiki-token-constant: #005cc5;
+  --shiki-token-string: #24292e;
+  --shiki-token-comment: #6A737D;
+  --shiki-token-keyword: #d73a49;
+  --shiki-token-function: #6F42C1;
+  --shiki-token-string-expression: #032f62;
+  --shiki-token-punctuation: #24292e;
+  /* --shiki-token-parameter: #24292e; */
+  /* --shiki-token-link: #d73a49; */
+}
+
+body {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+div[class*='language-'] {
+  @apply shadow rounded-lg;
+  position: relative;
+}
+
+div[class*='language-'] .copy {
+  @apply bg-white text-black hidden;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+
+div[class*='language-'] .copy:before {
+  content: 'copy';
+}
+
+.lang {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 40;
+  @apply text-gray-400 opacity-75 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full;
+}
+
+div[class*='language-'] pre,
+div[class*='language-'] pre[class*='shiki'] {
+  position: relative;
+  z-index: 1;
+}
+
+/* Table of Contents */
+@screen xl {
+  .table-of-contents {
+    @apply hidden;
+  }
+}
+
+/* Content Area */
+.content {
+}
+
+.content div[class*='language-'] pre {
+  background-color: var(--shiki-color-background)
+  /* @apply bg-white border border-transparent; */
+}
+
+.dark .content div[class*='language-'] pre {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+.content p > code,
+.content li > code {
+  @apply font-semibold
+/*  @apply whitespace-nowrap font-semibold bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 mx-0.5 px-1 py-0.5 rounded text-gray-600 dark:text-gray-400 !important;*/;
+}
+/*.content p > code:before,*/
+/*.content p > code:after,*/
+/*.content li > code:before,*/
+/*.content li > code:after {*/
+/*  content: '';*/
+/*}*/
+
+.content li {
+  position: relative;
+}
+
+.content li:before {
+  @apply bg-gray-300;
+  content: '';
+  width: 0.75em;
+  height: 0.125em;
+  position: absolute;
+  top: calc(0.875em - 0.0625em);
+  left: 0;
+  border-radius: 999px;
+}
+
+/* Tips */
+.prose .custom-block-title {
+  @apply font-medium;
+}
+
+.prose .custom-block {
+  @apply py-6 space-y-2;
+}
+
+.prose .custom-block p {
+  @apply my-0;
+}
+
+.prose .warning {
+  @apply bg-yellow-100 rounded-lg shadow text-gray-700 px-6;
+}
+
+.prose .tip {
+  @apply bg-purple-100 rounded-lg shadow text-gray-700 px-6;
+}
+
+/* Algolia DocSearch */
+.LNSearch .DocSearch-Button {
+  @apply shadow-none bg-transparent relative w-full m-0 p-0;
+}
+
+.LNSearch .DocSearch-Button .DocSearch-Search-Icon {
+  @apply ml-2 text-gray-400 dark:text-gray-600;
+}
+
+.LNSearch .DocSearch-Button-Placeholder {
+  @apply antialiased text-sm ml-1 text-gray-600;
+}
+
+.LNSearch .DocSearch-Button-Container {
+  @apply rounded-lg relative w-full flex items-center bg-white shadow-sm dark:shadow-gray-900 shadow-gray-200 dark:bg-gray-950 h-9;
+  @apply ring-1 ring-gray-900/10 hover:ring-gray-300 dark:ring-gray-100/10 dark:hover:ring-gray-600;
+}
+
+.LNSearch .DocSearch-Button-Keys {
+  @apply absolute top-[11px] right-4 w-auto m-0 p-0 min-w-0 text-sm pointer-events-none;
+}
+
+.LNSearch .DocSearch-Button-Key {
+  @apply bg-none border-0 shadow-none w-auto m-0 font-sans font-bold antialiased text-gray-400 dark:text-gray-500;
+}
