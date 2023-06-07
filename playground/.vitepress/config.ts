@@ -38,13 +38,13 @@ export default defineConfigWithTheme<ThemeConfig>({
       {
         text: 'Introduction',
         items: [
-          { text: 'Installation', link: 'installation' },
-          { text: 'Prev/Next Test', link: 'short' },
+          { text: 'Installation', link: '/installation' },
+          { text: 'Prev/Next Test', link: '/short' },
         ],
       },
       {
         text: 'About',
-        items: [{ text: 'Upgrade Guide', link: 'upgrade' }],
+        items: [{ text: 'Upgrade Guide', link: '/upgrade' }],
       },
     ],
     algolia: {

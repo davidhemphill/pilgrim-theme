@@ -6,7 +6,7 @@ export interface ThemeConfig {
   versions: Version[]
   showVersionPicker: boolean
   editLink?: EditLink
-  sidebar?: SidebarSectionConfig[]
+  sidebar?: SidebarItem[]
   algolia?: AlgoliaSearchOptions
   githubUrl?: string
 }
@@ -25,16 +25,18 @@ export interface AlgoliaSearchOptions {
 
 export type SidebarItem = {
   text: string
+  items: SidebarLink[]
+}
+
+export type SidebarLink = {
+  text: string
   link: string
 }
 
-export type SidebarSectionConfig = {
+export type NavLink = {
   text: string
-  link?: string
-  items?: SidebarItem[]
+  link: string
 }
-
-export type NavLink = SidebarItem
 
 export type Version = {
   text: string

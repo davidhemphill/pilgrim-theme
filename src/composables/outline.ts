@@ -55,8 +55,8 @@ export function resolveHeaders(
     typeof levelsRange === 'number'
       ? [levelsRange, levelsRange]
       : levelsRange === 'deep'
-        ? [2, 6]
-        : levelsRange
+      ? [2, 6]
+      : levelsRange
 
   headers = headers.filter((h: MenuItem) => h.level >= high && h.level <= low)
 
@@ -70,7 +70,7 @@ export function resolveHeaders(
       for (let j: number = i - 1; j >= 0; j--) {
         const prev: MenuItem = headers[j]
         if (prev.level < cur.level) {
-          ; (prev.children || (prev.children = [])).push(cur)
+          ;(prev.children || (prev.children = [])).push(cur)
           continue outer
         }
       }
@@ -84,8 +84,12 @@ export function resolveHeaders(
 export const HASH_RE: RegExp = /#.*$/
 export const EXT_RE: RegExp = /(index)?\.(md|html)$/
 
-export function isActive(currentPath: string, matchPath: string) {
-  return normalize(currentPath) === matchPath
+export function isActive(currentPath: string, matchPath: string): boolean {
+  currentPath = normalize(`/${currentPath}`)
+
+  console.log(currentPath, normalize(matchPath))
+
+  return normalize(matchPath) === currentPath
 }
 
 function normalize(path: string): string {

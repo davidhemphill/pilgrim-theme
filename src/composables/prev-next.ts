@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { getFlatSideBarLinks } from '../support/sidebar'
 import { isActive } from './outline'
-import type { NavLink } from '../config'
+import type { NavLink, SidebarLink } from '../config'
 
 export function usePrevNext() {
   const { page, theme, frontmatter } = useData()
@@ -12,9 +12,9 @@ export function usePrevNext() {
 
     const candidates = getFlatSideBarLinks(sidebar)
 
-    const index = candidates.findIndex((link: NavLink) =>
-      isActive(page.value.relativePath, link.link)
-    )
+    const index = candidates.findIndex(function (link: SidebarLink) {
+      return isActive(page.value.relativePath, link.link)
+    })
 
     return {
       prev: {

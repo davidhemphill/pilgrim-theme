@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { DefaultTheme } from 'vitepress'
 import { NavLink } from '../config'
 
 defineProps<{

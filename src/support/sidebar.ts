@@ -1,13 +1,11 @@
-export function getFlatSideBarLinks(sidebar) {
-  const links = []
+import type { SidebarItem, SidebarLink } from '../config'
 
-  for (const item of sidebar) {
-    if (item.link) {
+export function getFlatSideBarLinks(sidebar: SidebarItem[]): SidebarLink[] {
+  let links: SidebarLink[] = []
+
+  for (const group of sidebar) {
+    for (const item of group.items) {
       links.push(item)
-    }
-
-    if (item.items) {
-      links.push(...getFlatSideBarLinks(item.items))
     }
   }
 

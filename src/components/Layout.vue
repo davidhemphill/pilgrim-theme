@@ -10,9 +10,9 @@ const { page } = useData()
 
 <template>
   <LNHeader />
-  <div>
+  <div class="relative">
     <slot name="background"></slot>
-    <div class="max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8">
+    <div class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8">
       <div
         class="hidden lg:block fixed z-20 inset-0 w-[19.5rem] top-[3.3rem] left-[max(0px,calc(50%-45rem))] right-auto px-8 pb-10 overflow-y-auto"
       >
