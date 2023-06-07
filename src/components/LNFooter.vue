@@ -32,7 +32,7 @@ const hasEditLink = computed(() => {
       <LNPrevNextLink
         v-if="control.next?.link"
         :href="withBase(control.next?.link ?? '')"
-        class="md:ml-auto"
+        class="ml-auto"
       >
         <template #postLabel>→</template>
         {{ control.next.text }}

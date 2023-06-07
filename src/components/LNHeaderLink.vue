@@ -1,0 +1,17 @@
+<script setup lang="ts">
+import { DefaultTheme } from 'vitepress'
+import { NavLink } from '../config'
+
+defineProps<{
+  item: NavLink
+}>()
+</script>
+
+<template>
+  <a
+    :href="item.link"
+    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
+  >
+    {{ item.text }}
+  </a>
+</template>
