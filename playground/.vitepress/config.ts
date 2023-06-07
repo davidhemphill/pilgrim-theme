@@ -32,13 +32,14 @@ export default defineConfigWithTheme<ThemeConfig>({
     sidebar: [
       {
         text: 'Introduction',
-        link: '',
-        items: [{ text: 'Installation', link: '/installation' }],
+        items: [
+          { text: 'Installation', link: 'installation' },
+          { text: 'Prev/Next Test', link: 'short' },
+        ],
       },
       {
         text: 'About',
-        link: '',
-        items: [{ text: 'Upgrade Guide', link: '/upgrade' }],
+        items: [{ text: 'Upgrade Guide', link: 'upgrade' }],
       },
     ],
     algolia: {

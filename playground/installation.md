@@ -99,8 +99,6 @@ Nova requires a license key and a production URL to be used in production enviro
 
 You can generate license keys and register the production URL for your project inside the license's page on your Nova account at [https://nova.laravel.com/licenses](https://nova.laravel.com/licenses):
 
-![Registering your production site](./img/register-site.png)
-
 :::tip Wildcard subdomains
 You can register a wildcard subdomain for your production URL for use in multi-tenant scenarios (e.g. `*.laravel.com`).
 :::
@@ -175,8 +173,6 @@ protected function gate()
 ### Branding
 
 Although Nova's interface is intended to be an isolated part of your application that is managed by Nova, you can make some small customizations to the branding logo and color used by Nova to make the interface more cohesive with the rest of your application.
-
-![Branding](./img/branding.png)
 
 #### Brand Logo
 

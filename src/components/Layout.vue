@@ -28,8 +28,12 @@ const { page } = useData()
         </div>
       </div>
       <div class="lg:pl-[19.5rem]">
-        <div v-if="page.isNotFound">Custom 404 page!</div>
-        <LNPage />
+        <div
+          class="antialiased max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 pb-24"
+        >
+          <div v-if="page.isNotFound">404</div>
+          <LNPage v-else />
+        </div>
       </div>
     </div>
   </div>

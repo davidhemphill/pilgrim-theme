@@ -5,12 +5,12 @@
 
 :root {
   --shiki-color-text: #24292e;
-  --shiki-color-background: #FFF;
+  --shiki-color-background: #fff;
   --shiki-token-constant: #005cc5;
   --shiki-token-string: #24292e;
-  --shiki-token-comment: #6A737D;
+  --shiki-token-comment: #6a737d;
   --shiki-token-keyword: #d73a49;
-  --shiki-token-function: #6F42C1;
+  --shiki-token-function: #6f42c1;
   --shiki-token-string-expression: #032f62;
   --shiki-token-punctuation: #24292e;
   /* --shiki-token-parameter: #24292e; */
@@ -63,7 +63,7 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .content div[class*='language-'] pre {
-  background-color: var(--shiki-color-background)
+  background-color: var(--shiki-color-background);
   /* @apply bg-white border border-transparent; */
 }
 
@@ -129,12 +129,12 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .LNSearch .DocSearch-Button-Placeholder {
-  @apply antialiased text-sm ml-1 text-gray-600;
+  @apply antialiased text-sm ml-1 text-gray-600 dark:text-gray-400;
 }
 
 .LNSearch .DocSearch-Button-Container {
-  @apply rounded-lg relative w-full flex items-center bg-white shadow-sm dark:shadow-gray-900 shadow-gray-200 dark:bg-gray-950 h-9;
-  @apply ring-1 ring-gray-900/10 hover:ring-gray-300 dark:ring-gray-100/10 dark:hover:ring-gray-600;
+  @apply rounded-lg relative w-full flex items-center bg-white dark:bg-gray-800 h-9;
+  @apply border border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600;
 }
 
 .LNSearch .DocSearch-Button-Keys {

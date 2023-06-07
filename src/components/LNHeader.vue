@@ -52,7 +52,9 @@ function setIsOpen(value: boolean) {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full h-[3.3rem] flex-none">
+  <header
+    class="bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b dark:border-gray-700 sticky top-0 z-50 w-full h-[3.3rem] flex-none"
+  >
     <div class="max-w-[90rem] px-4 sm:px-6 md:px-8 mx-auto h-[3.3rem]">
       <div class="flex items-center h-[3.3rem] gap-4">
         <button
