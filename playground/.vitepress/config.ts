@@ -20,6 +20,11 @@ export default defineConfigWithTheme<ThemeConfig>({
       { text: 'Course', link: 'https://laracasts.com/' },
     ],
     githubUrl: 'https://github.com/laravel/nova-issues',
+    editLink: {
+      pattern:
+        'https://github.com/davidhemphill/pilgrim-theme/edit/main/playground/:path',
+      text: 'Edit this page on GitHub',
+    },
     showVersionPicker: true,
     versions: [
       {

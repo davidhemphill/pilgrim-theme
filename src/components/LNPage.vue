@@ -2,7 +2,7 @@
 import LNAsideOutline from './LNAsideOutline.vue'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
-import LNPrevNext from './LNPrevNext.vue'
+import LNPrevNext from './LNFooter.vue'
 const { page } = useData()
 
 const shouldShowOutline = computed(() => {

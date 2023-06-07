@@ -1,11 +1,19 @@
+import type { PageData } from 'vitepress'
+
 export interface ThemeConfig {
   logo: ThemeableImage
   nav?: NavLink[]
   versions: Version[]
   showVersionPicker: boolean
+  editLink?: EditLink
   sidebar?: SidebarSectionConfig[]
   algolia?: AlgoliaSearchOptions
   githubUrl?: string
+}
+
+export interface EditLink {
+  pattern: string | ((payload: PageData) => string)
+  text?: string
 }
 
 export interface AlgoliaSearchOptions {
