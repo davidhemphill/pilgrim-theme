@@ -1,4 +1,4 @@
-import { Theme } from 'vitepress'
+import type { Theme } from 'vitepress'
 import './styles.css'
 import Layout from './components/Layout.vue'
 
