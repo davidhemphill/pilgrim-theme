@@ -9,7 +9,11 @@ const { page } = useData()
 </script>
 
 <template>
-  <LNHeader />
+  <LNHeader>
+    <template #logo>
+      <slot name="logo" />
+    </template>
+  </LNHeader>
   <div class="relative">
     <slot name="background"></slot>
     <div class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8">
