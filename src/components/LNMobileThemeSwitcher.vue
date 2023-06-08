@@ -8,9 +8,7 @@ const { modes, currentMode, currentModeLabel, handleChange } =
 <template>
   <div class="flex items-center gap-6">
     <div class="flex-shrink-0 text-gray-600 dark:text-gray-400">
-      Choose Theme<br />
-      {{ currentMode }}<br />
-      {{ currentModeLabel }}
+      Choose Theme
     </div>
     <div
       class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-1.5 px-3 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200"
