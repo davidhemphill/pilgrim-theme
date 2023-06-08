@@ -87,8 +87,6 @@ export const EXT_RE: RegExp = /(index)?\.(md|html)$/
 export function isActive(currentPath: string, matchPath: string): boolean {
   currentPath = normalize(`/${currentPath}`)
 
-  console.log(currentPath, normalize(matchPath))
-
   return normalize(matchPath) === currentPath
 }
 

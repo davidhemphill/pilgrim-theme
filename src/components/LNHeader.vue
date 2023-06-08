@@ -18,8 +18,14 @@ import { onContentUpdated, useData } from 'vitepress'
 import { computed, ref } from 'vue'
 import LNGitHubLink from './LNGitHubLink.vue'
 import LNHeaderLink from './LNHeaderLink.vue'
+import LNMobileThemeSwitcher from './LNMobileThemeSwitcher.vue'
 
 const { site, theme } = useData()
+
+const isOpen = ref(false)
+const dotMenuOpen = ref(false)
+
+const githubUrl = computed(() => theme.value.githubUrl)
 
 onContentUpdated(() => {
   setIsOpen(false)
@@ -45,9 +51,6 @@ const navItems = computed(() => site.value.themeConfig.nav)
 const shouldShowVersionPicker = computed(
   () => theme.value.showVersionPicker && theme.value.versions.length > 1
 )
-
-const isOpen = ref(false)
-const dotMenuOpen = ref(false)
 
 function setIsOpen(value: boolean): void {
   isOpen.value = value
@@ -147,16 +150,21 @@ function setDotMenuOpen(value: boolean): void {
               />
 
               <div class="fixed inset-0 overflow-y-auto">
-                <div class="flex min-h-full">
+                <div class="flex justify-end p-6">
                   <DialogPanel
-                    class="bg-white dark:bg-gray-900 shadow p-6 w-[230px] space-y-8"
+                    class="bg-white dark:bg-gray-900 shadow p-8 w-[330px] space-y-8 rounded-lg"
                   >
-                    <div class="flex flex-col md:hidden gap-6">
+                    <div class="flex flex-col md:hidden gap-4">
                       <LNHeaderLink v-for="item in navItems" :item="item" />
+                      <LNHeaderLink
+                        :item="{ text: 'GitHub', link: githubUrl }"
+                      />
                     </div>
 
-                    <div>
-                      <LNGitHubLink />
+                    <div
+                      class="border-t border-gray-200 dark:border-gray-600 pt-6"
+                    >
+                      <LNMobileThemeSwitcher />
                     </div>
                   </DialogPanel>
                 </div>
