@@ -1,4 +1,4 @@
-# Pilgrim for Vitepress
+# Pilgrim Theme for Vitepress
 
 Pilgrim is a documentation theme for Vitepress.
 
@@ -37,20 +37,23 @@ export default defineConfigWithTheme<ThemeConfig>({
       { text: 'Course', link: 'https://laracasts.com/' },
     ],
     githubUrl: 'https://github.com/laravel/nova-issues',
-    sidebar: {
-      '1.0': [
-        {
-          title: '',
-          path: '',
-          items: [
-            {
-              title: '',
-              path: '1.0',
-            },
-          ],
-        },
-      ],
-    },
+    showVersionPicker: true,
+    versions: [
+      { text: 'v1.0', link: '/docs/1.0' },
+      { text: 'v2.0', link: '/docs/1.0', current: true },
+    ],
+    sidebar: [
+      {
+        text: 'Getting Started',
+        items: [
+          { text: 'Installation', link: '/installation' },
+          { text: 'Release Notes', link: '/releases' },
+          { text: 'Upgrade', link: '/upgrade' },
+          { text: 'Support', link: '/support' },
+          { text: 'Code of Conduct', link: '/code-of-conduct' },
+        ],
+      },
+    ],
     search: {
       provider: 'algolia',
       options: {
