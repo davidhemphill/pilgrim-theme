@@ -1,4 +1,4 @@
-# 🧑‍🚀 Pilgrim Theme for Vitepress 🏄‍♂️
+# 🧑‍🚀 Pilgrim Theme for Vitepress
 
 Pilgrim is a documentation theme for Vitepress.
 
