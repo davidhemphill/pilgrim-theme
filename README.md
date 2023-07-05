@@ -66,9 +66,3 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
 })
 ```
-
-The theme configuration is of the following type:
-
-```ts
-
-```
