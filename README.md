@@ -2,13 +2,12 @@
 
 Pilgrim is a documentation theme for Vitepress.
 
-
 To use this theme in your own Vitepress project
 
 In your `.vitepress/theme/index.ts`:
 
 ```ts
-import { Theme } from "pilgrim-theme";
+import { Theme } from 'pilgrim-theme'
 
 export default Theme
 ```
@@ -16,7 +15,7 @@ export default Theme
 Customize the configuration for your uses:
 
 ```ts
-import { defineConfigWithTheme } from "vitepress";
+import { defineConfigWithTheme } from 'vitepress'
 import type { ThemeConfig } from 'pilgrim-theme'
 import config from 'pilgrim-theme/config'
 
@@ -41,23 +40,26 @@ export default defineConfigWithTheme<ThemeConfig>({
     sidebar: {
       '1.0': [
         {
-            title: '',
-            path: '',
-            items: [
-                {
-                    title: '',
-                    path: '1.0',
-                }
-            ]
-        }
-      ]
+          title: '',
+          path: '',
+          items: [
+            {
+              title: '',
+              path: '1.0',
+            },
+          ],
+        },
+      ],
     },
-    // algolia: {
-    //   indexName: 'laravel_nova',
-    //   appId: 'FGRCZANQVY',
-    //   apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
-    //   placeholder: 'Search Nova Docs...',
-    // },
+    search: {
+      provider: 'algolia',
+      options: {
+        indexName: '',
+        appId: '',
+        apiKey: '',
+        placeholder: 'Search Nova Docs...',
+      },
+    },
   },
 })
 ```
@@ -65,6 +67,5 @@ export default defineConfigWithTheme<ThemeConfig>({
 The theme configuration is of the following type:
 
 ```ts
-
 
 ```
