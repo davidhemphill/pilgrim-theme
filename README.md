@@ -12,7 +12,7 @@ import { Theme } from 'pilgrim-theme'
 export default Theme
 ```
 
-Customize the configuration for your uses:
+Customize the configuration for your uses inside `.vitepress/config.ts`:
 
 ```ts
 import { defineConfigWithTheme } from 'vitepress'
