@@ -40,7 +40,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     showVersionPicker: true,
     versions: [
       { text: 'v1.0', link: '/docs/1.0' },
-      { text: 'v2.0', link: '/docs/1.0', current: true },
+      { text: 'v2.0', link: '/docs/2.0', current: true },
     ],
     sidebar: [
       {
