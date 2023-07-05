@@ -55,8 +55,8 @@ export function resolveHeaders(
     typeof levelsRange === 'number'
       ? [levelsRange, levelsRange]
       : levelsRange === 'deep'
-      ? [2, 6]
-      : levelsRange
+        ? [2, 6]
+        : levelsRange
 
   headers = headers.filter((h: MenuItem) => h.level >= high && h.level <= low)
 
@@ -70,7 +70,7 @@ export function resolveHeaders(
       for (let j: number = i - 1; j >= 0; j--) {
         const prev: MenuItem = headers[j]
         if (prev.level < cur.level) {
-          ;(prev.children || (prev.children = [])).push(cur)
+          ; (prev.children || (prev.children = [])).push(cur)
           continue outer
         }
       }
@@ -152,7 +152,7 @@ export function useActiveAnchor(container: Ref<HTMLElement>) {
 
   function activateLink(hash: string | null) {
     if (prevActiveLink) {
-      prevActiveLink.classList.remove('!text-blue-500')
+      prevActiveLink.classList.remove('!text-primary-500')
     }
 
     if (hash !== null) {
@@ -164,7 +164,7 @@ export function useActiveAnchor(container: Ref<HTMLElement>) {
     const activeLink: HTMLAnchorElement | null = prevActiveLink
 
     if (activeLink) {
-      activeLink.classList.add('!text-blue-500')
+      activeLink.classList.add('!text-primary-500')
     }
   }
 }

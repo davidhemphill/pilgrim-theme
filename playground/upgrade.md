@@ -104,7 +104,7 @@ Once your configuration has been updated, you should review the following list o
 
 ### Registering a Nova license key and production URL
 
-Nova requires a license key a production URL to be used in production environments. Nova will check your license key and the current host against the values from the license details found in your Nova account. You can learn more in the [installation docs](/4.0/installation.html#registering-a-nova-license-key-and-production-url).
+Nova requires a license key a production URL to be used in production environments. Nova will check your license key and the current host against the values from the license details found in your Nova account.
 
 ### Updating Third-Party Nova Packages
 
@@ -227,8 +227,6 @@ return 'posts-dashboard';
 ### Client-Side Timezone Detection
 
 Nova 4 removes the ability to rely on the client machine timezone in order to display timezone related information. Instead, Nova 4 utilizes the application's "server side" timezone as defined by the timezone option in your application's `app` configuration file.
-
-Please refer to our documentation regarding [timezone customization](./resources/date-fields.html#customizing-the-timezone) for more information.
 
 ### `Date` / `DateTime` Fields & HTML5
 
@@ -445,8 +443,6 @@ Nova 4 introduce the following tweaks to authorization order / precedence:
 - Authorizing if a user can `view` a resource no longer depends on the `viewAny` permission.
 - Actions can be executed regardless of `view` and `viewAny` permissions.
 - Destructive actions will now authorize via their own `canRun` method before falling back to the model's policy.
-
-Further detail regarding Nova authorization is available within the [resource policy documentation](./resources/authorization.html#policies) and [action authorization documentation](./actions/registering-actions.md#authorization).
 
 ### Update Published Stubs
 

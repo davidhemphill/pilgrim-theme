@@ -24,7 +24,7 @@ const currentVersion = computed(() => versions.value.filter(v => v.current)[0])
           <MenuItem v-for="{ link, text, current } in versions" v-slot="{ active }">
           <a :href="link"
             class="flex items-center gap-2 w-full font-semibold text-gray-600 dark:text-gray-200 text-left px-3 py-1 text-sm hover:bg-gray-50 dark:hover:bg-gray-900"
-            :class="{ '!text-blue-500': current }">
+            :class="{ '!text-primary-500': current }">
             {{ text }}
             <CheckIcon v-if="current" class="ml-auto w-4" />
           </a>

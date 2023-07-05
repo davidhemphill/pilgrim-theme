@@ -47,11 +47,8 @@ export default defineConfigWithTheme<ThemeConfig>({
         items: [{ text: 'Upgrade Guide', link: '/upgrade' }],
       },
     ],
-    algolia: {
-      indexName: 'laravel_nova',
-      appId: 'FGRCZANQVY',
-      apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
-      placeholder: 'Search Nova Docs...',
+    search: {
+      provider: 'local'
     },
   },
 })

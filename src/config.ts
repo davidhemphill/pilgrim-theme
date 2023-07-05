@@ -3,17 +3,20 @@ import type { PageData } from 'vitepress'
 export interface ThemeConfig {
   logo: ThemeableImage
   nav?: NavLink[]
-  versions: Version[]
+  versions?: Version[]
   showVersionPicker: boolean
   editLink?: EditLink
   sidebar?: SidebarItem[]
-  algolia?: AlgoliaSearchOptions
+  search: { provider: 'local'; options?: SearchOptions } | { provider: 'algolia'; options?: AlgoliaSearchOptions }
   githubUrl?: string
 }
 
 export interface EditLink {
   pattern: string | ((payload: PageData) => string)
   text?: string
+}
+
+export interface SearchOptions {
 }
 
 export interface AlgoliaSearchOptions {

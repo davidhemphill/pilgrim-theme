@@ -7,7 +7,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: { gray: colors.slate, blue: colors.sky },
+      colors: { gray: colors.slate, blue: colors.sky, primary: colors.sky },
       fontFamily: { sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans] },
     },
   },

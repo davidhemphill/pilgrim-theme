@@ -17,8 +17,12 @@
   /* --shiki-token-link: #d73a49; */
 }
 
+html {
+  @apply h-full;
+}
+
 body {
-  @apply bg-gray-50 dark:bg-gray-900;
+  @apply bg-gray-50 dark:bg-gray-900 min-h-full;
 }
 
 div[class*='language-'] {
@@ -104,24 +108,124 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .prose .custom-block {
-  @apply py-6 space-y-2;
+  @apply py-6 space-y-2 border;
 }
 
 .prose .custom-block p {
   @apply my-0;
 }
 
+.prose .info {
+  @apply bg-blue-100 border-blue-100 rounded-lg text-gray-700 px-6;
+}
+
+.dark .prose .info {
+  @apply bg-transparent border-blue-500 rounded-lg text-blue-300 px-6;
+}
+.dark .prose .info .custom-block-title {
+  @apply text-blue-300;
+}
+
+.dark .prose .tip p,
+.dark .prose .warning p,
+.dark .prose .danger p,
+.dark .prose .info p {
+  @apply text-gray-300;
+}
+
 .prose .warning {
-  @apply bg-yellow-100 rounded-lg shadow text-gray-700 px-6;
+  @apply bg-yellow-100 border-yellow-100 rounded-lg text-gray-700 px-6;
+}
+
+.dark .prose .warning {
+  @apply bg-transparent border-yellow-300 rounded-lg text-yellow-300 px-6;
+}
+
+.dark .prose .tip a {
+  @apply border-yellow-300;
+}
+
+.dark .prose .info .custom-block-title {
+  @apply text-blue-300;
 }
 
 .prose .tip {
-  @apply bg-purple-100 rounded-lg shadow text-gray-700 px-6;
+  @apply bg-purple-100 border-purple-100 rounded-lg text-gray-700 px-6;
+}
+
+.dark .prose .tip {
+  @apply bg-transparent border-purple-500 rounded-lg text-purple-300 px-6;
+}
+
+.dark .prose .tip a {
+  @apply border-purple-500;
+}
+
+.dark .prose .tip .custom-block-title {
+  @apply text-purple-300;
+}
+
+.prose .danger {
+  @apply bg-red-100 border-red-100 rounded-lg text-red-700 px-6;
+}
+
+.prose .danger strong,
+.prose .danger a {
+  @apply text-red-700 font-bold;
+}
+
+.dark .prose .danger {
+  @apply bg-transparent border-red-500 rounded-lg text-red-500 px-6;
+}
+
+.dark .prose .danger .custom-block-title {
+  @apply text-red-500;
+}
+.dark .prose .danger strong,
+.dark .prose .danger a {
+  @apply text-red-500;
 }
 
 /* Algolia DocSearch */
+.dark .DocSearch-Container {
+  @apply bg-gray-900/30 backdrop-blur;
+}
+
+.dark .DocSearch-Modal {
+  @apply shadow-none;
+}
+
+.DocSearch Input {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.DocSearch .DocSearch-SearchBar {
+  @apply p-0;
+}
+
+.DocSearch .DocSearch-Form {
+  @apply bg-gray-100 dark:bg-gray-800 shadow-none;
+}
+
+.DocSearch .DocSearch-NoResults {
+  @apply flex flex-col items-center justify-center;
+}
+
+.dark .DocSearch-SearchBar,
+.dark .DocSearch-Dropdown {
+  @apply bg-gray-900/90;
+}
+
+.DocSearch .DocSearch-Commands {
+  @apply hidden;
+}
+
 .LNSearch .DocSearch-Button {
   @apply shadow-none bg-transparent relative w-full m-0 p-0;
+}
+
+.DocSearch .DocSearch-Footer {
+  @apply bg-transparent shadow-none;
 }
 
 .LNSearch .DocSearch-Button .DocSearch-Search-Icon {
@@ -129,7 +233,11 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .LNSearch .DocSearch-Button-Placeholder {
-  @apply antialiased text-sm ml-1 text-gray-600 dark:text-gray-400;
+  @apply antialiased text-sm ml-1 text-gray-600;
+}
+
+.dark .LNSearch .DocSearch-Button-Placeholder {
+  @apply text-gray-400;
 }
 
 .LNSearch .DocSearch-Button-Container {
