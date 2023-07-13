@@ -58,9 +58,9 @@ export default defineConfigWithTheme<ThemeConfig>({
       // provider: 'algolia',
       // options: {
       //   placeholder: 'Search the Nova docs...',
-      //   apiKey: '',
-      //   appId: '',
-      //   indexName: '',
+      //   indexName: 'laravel_nova',
+      //   appId: 'FGRCZANQVY',
+      //   apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
       // },
     },
   },

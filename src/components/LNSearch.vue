@@ -150,11 +150,13 @@ const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
     </template>
 
     <template v-else-if="provider === 'algolia'">
-      <LNAlgoliaSearchBox
-        v-if="loaded"
-        :algolia="theme.search?.options"
-        @vue:beforeMount="actuallyLoaded = true"
-      />
+      <div class="LNSearch">
+        <LNAlgoliaSearchBox
+          v-if="loaded"
+          :algolia="theme.search?.options"
+          @vue:beforeMount="actuallyLoaded = true"
+        />
+      </div>
 
       <!--      <div v-if="!actuallyLoaded" id="docsearch">-->
       <LNSearchButton @click="load" :placeholder="buttonText" />

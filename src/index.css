@@ -191,68 +191,81 @@ div[class*='language-'] pre[class*='shiki'] {
   display: none !important;
 }
 
-.dark .DocSearch-Container {
-  @apply bg-gray-900/30 backdrop-blur;
+.DocSearch-Container {
+  @apply bg-white/90 dark:bg-gray-800/30 backdrop-blur;
 }
 
-.dark .DocSearch-Modal {
-  @apply shadow-none;
-}
-
-.DocSearch Input {
-  @apply bg-gray-100 dark:bg-gray-800;
-}
-
-.DocSearch .DocSearch-SearchBar {
-  @apply p-0;
+.DocSearch .DocSearch-Modal {
+  @apply bg-white dark:bg-gray-800 shadow-none max-w-4xl rounded-xl;
 }
 
 .DocSearch .DocSearch-Form {
-  @apply bg-gray-100 dark:bg-gray-800 shadow-none;
+  @apply bg-transparent rounded-t-xl rounded-b-none;
+}
+
+.DocSearch .DocSearch-Input {
+  @apply dark:text-gray-300 dark:placeholder:text-gray-400 px-4;
+}
+
+.DocSearch .DocSearch-SearchBar {
+  @apply bg-transparent py-2 px-3 border-b border-gray-200 dark:border-gray-700;
+}
+
+.DocSearch .DocSearch-Form {
+  @apply shadow-none;
 }
 
 .DocSearch .DocSearch-NoResults {
   @apply flex flex-col items-center justify-center;
 }
 
-.dark .DocSearch-SearchBar,
-.dark .DocSearch-Dropdown {
-  @apply bg-gray-900/90;
+/* Algolia Logo */
+.DocSearch .DocSearch-Logo svg {
+  @apply text-red-500 !important;
 }
 
-.DocSearch .DocSearch-Commands {
-  @apply hidden;
-}
-
-.LNSearch .DocSearch-Button {
-  @apply shadow-none bg-transparent relative w-full m-0 p-0;
-}
-
+/* Search Footer */
 .DocSearch .DocSearch-Footer {
-  @apply bg-transparent shadow-none;
+  @apply bg-transparent shadow-none border-t dark:border-gray-700;
 }
 
-.LNSearch .DocSearch-Button .DocSearch-Search-Icon {
-  @apply ml-2 text-gray-400 dark:text-gray-600;
+/* Search Reset Button */
+.DocSearch .DocSearch-Reset {
+  @apply text-gray-600 dark:text-white;
 }
 
-.LNSearch .DocSearch-Button-Placeholder {
-  @apply antialiased text-sm ml-1 text-gray-600;
+/* Search Results Dropdown */
+.DocSearch .DocSearch-Dropdown {
+  @apply px-6;
 }
 
-.dark .LNSearch .DocSearch-Button-Placeholder {
+/* Search Hits */
+.DocSearch .DocSearch-Hit-source {
+  @apply bg-transparent text-gray-600 dark:text-gray-400 uppercase tracking-widest font-bold text-xs py-6;
+}
+
+.DocSearch .DocSearch-Hit {
+  @apply rounded-none shadow-none dark:text-white;
+}
+
+.DocSearch .DocSearch-Hit-title {
   @apply text-gray-400;
 }
 
-.LNSearch .DocSearch-Button-Container {
-  @apply rounded-lg relative w-full flex items-center bg-white dark:bg-gray-800 h-9;
-  @apply border border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600;
+.DocSearch .DocSearch-Hit-title mark {
+  @apply text-primary-500;
 }
 
-.LNSearch .DocSearch-Button-Keys {
-  @apply absolute top-[11px] right-4 w-auto m-0 p-0 min-w-0 text-sm pointer-events-none;
+.DocSearch .DocSearch-Hit a {
+  @apply dark:bg-gray-800 rounded-lg shadow-none;
 }
 
-.LNSearch .DocSearch-Button-Key {
-  @apply bg-none border-0 shadow-none w-auto m-0 font-sans font-bold antialiased text-gray-400 dark:text-gray-500;
+.DocSearch .DocSearch-Hit[aria-selected='true'] a {
+  @apply bg-primary-500;
+}
+
+/* Search Shortcuts */
+.DocSearch .DocSearch-Commands-Key {
+  background: none;
+  @apply bg-gray-100 dark:bg-gray-900 shadow-none;
 }

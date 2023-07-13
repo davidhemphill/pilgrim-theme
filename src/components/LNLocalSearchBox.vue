@@ -383,8 +383,7 @@ function formMarkRegex(terms: Set<string>) {
             :href="p.id"
             class="result flex items-center gap-4 rounded-lg leading-tight border border-transparent focus:outline-none"
             :class="{
-              'bg-gray-100 dark:bg-gray-800': selectedIndex === index,
-              selected: selectedIndex === index,
+              'bg-primary-500 !text-white': selectedIndex === index,
             }"
             :aria-label="[...p.titles, p.title].join(' > ')"
             @mouseenter="!disableMouseOver && (selectedIndex = index)"
@@ -394,6 +393,9 @@ function formMarkRegex(terms: Set<string>) {
             <div class="m-2 w-full overflow-hidden">
               <div
                 class="titles relative flex flex-wrap items-center gap-1 py-1 z-[1001] text-gray-600 [&_mark]:text-black [&_mark]:font-bold [&_mark]:bg-transparent dark:[&_mark]:text-white"
+                :class="{
+                  '!text-white [&_mark]:text-white': selectedIndex === index,
+                }"
               >
                 <span
                   v-for="(t, index) in p.titles"
@@ -412,7 +414,12 @@ function formMarkRegex(terms: Set<string>) {
                     />
                   </svg>
                 </span>
-                <span class="title main text-gray-500">
+                <span
+                  class="title main text-gray-500"
+                  :class="{
+                    '!text-white': selectedIndex === index,
+                  }"
+                >
                   <span class="text" v-html="p.title" />
                 </span>
               </div>
