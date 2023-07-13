@@ -301,8 +301,9 @@ function formMarkRegex(terms: Set<string>) {
       <!-- Backdrop -->
       <div class="fixed inset-0 backdrop-blur" @click="$emit('close')" />
 
+      <!-- Shell -->
       <div
-        class="relative flex flex-col my-20 mx-auto p-4 bg-white dark:bg-gray-950 shadow-lg rounded-lg w-[min(100vw-60px,900px)] gap-3"
+        class="relative flex flex-col my-20 mx-auto p-4 bg-white dark:bg-gray-950 shadow-lg rounded-lg w-[min(100vw-60px,900px)] max-h-[min(100vh-128px,900px)] gap-3"
       >
         <div
           class="rounded-lg flex gap-2 items-center px-2 border border-gray-300 dark:border-gray-700 cursor-text"
@@ -351,7 +352,7 @@ function formMarkRegex(terms: Set<string>) {
 
           <!-- Clear Button -->
           <button
-            class="w-5 h-5 text-gray-500 hover:text-primary-500 dark:text-gray-300"
+            class="w-5 h-5 text-gray-500 hover:text-primary-500 dark:text-gray-300 mr-2"
             :title="$t('modal.resetButtonTitle')"
             @click="filterText = ''"
           >
@@ -380,7 +381,7 @@ function formMarkRegex(terms: Set<string>) {
             v-for="(p, index) in results"
             :key="p.id"
             :href="p.id"
-            class="flex items-center gap-4 rounded-lg leading-tight border border-transparent focus:outline-none"
+            class="result flex items-center gap-4 rounded-lg leading-tight border border-transparent focus:outline-none"
             :class="{
               'bg-gray-100 dark:bg-gray-800': selectedIndex === index,
               selected: selectedIndex === index,

@@ -48,14 +48,20 @@ export default defineConfigWithTheme<ThemeConfig>({
       },
     ],
     search: {
-      // provider: 'local',
-      provider: 'algolia',
+      // Local version...
+      provider: 'local',
       options: {
         placeholder: 'Search the Nova docs...',
-        apiKey: '',
-        appId: '',
-        indexName: '',
       },
+
+      // Algolia version...
+      // provider: 'algolia',
+      // options: {
+      //   placeholder: 'Search the Nova docs...',
+      //   apiKey: '',
+      //   appId: '',
+      //   indexName: '',
+      // },
     },
   },
 })

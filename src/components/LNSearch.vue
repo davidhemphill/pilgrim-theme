@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import '@docsearch/css'
 import { onKeyStroke } from '@vueuse/core'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import { defineAsyncComponent } from 'vue'
 import LNSearchButton from './LNSearchButton.vue'
-import { ThemeConfig as DefaultTheme } from '../../src/theme'
-
-const { theme } = useData()
+import { AlgoliaSearchOptions } from '../config'
 
 const LNLocalSearchBox = __VP_LOCAL_SEARCH__
   ? defineAsyncComponent(() => import('./LNLocalSearchBox.vue'))
@@ -17,11 +15,19 @@ const LNAlgoliaSearchBox = __ALGOLIA__
   ? defineAsyncComponent(() => import('./LNAlgoliaSearchBox.vue'))
   : () => null
 
+const { theme, localeIndex } = useData()
+
 // to avoid loading the docsearch js upfront (which is more than 1/3 of the
 // payload), we delay initializing it until the user has actually clicked or
 // hit the hotkey to invoke it.
 const loaded = ref(false)
 const actuallyLoaded = ref(false)
+
+const buttonText = computed(() => {
+  const options = theme.value.search?.options
+
+  return options.placeholder || 'Search'
+})
 
 const preconnect = () => {
   const id = 'VPAlgoliaPreconnect'
@@ -31,7 +37,7 @@ const preconnect = () => {
     preconnect.id = id
     preconnect.rel = 'preconnect'
     preconnect.href = `https://${
-      ((theme.value.search?.options as DefaultTheme.AlgoliaSearchOptions) ??
+      ((theme.value.search?.options as AlgoliaSearchOptions) ??
         theme.value.algolia)!.appId
     }-dsn.algolia.net`
     preconnect.crossOrigin = ''
@@ -64,15 +70,13 @@ onMounted(() => {
   window.addEventListener('keydown', handleSearchHotKey)
 
   onUnmounted(remove)
-
-  //   const handleSearchHotKey = () => {}
 })
 
 function load() {
-  if (!loaded.value) {
-    loaded.value = true
-    setTimeout(poll, 16)
-  }
+  // if (!loaded.value) {
+  loaded.value = true
+  setTimeout(poll, 16)
+  // }
 }
 
 function poll() {
@@ -141,7 +145,7 @@ const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
       <LNLocalSearchBox v-if="showSearch" @close="showSearch = false" />
 
       <div id="local-search">
-        <LNSearchButton @click="showSearch = true" />
+        <LNSearchButton @click="showSearch = true" :placeholder="buttonText" />
       </div>
     </template>
 
@@ -152,9 +156,9 @@ const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
         @vue:beforeMount="actuallyLoaded = true"
       />
 
-      <div v-if="!actuallyLoaded" id="docsearch">
-        <LNSearchButton @click="load" />
-      </div>
+      <!--      <div v-if="!actuallyLoaded" id="docsearch">-->
+      <LNSearchButton @click="load" :placeholder="buttonText" />
+      <!--      </div>-->
     </template>
 
     <div class="h-8 bg-gradient-to-b from-gray-50 dark:from-gray-900" />

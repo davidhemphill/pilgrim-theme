@@ -187,6 +187,10 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 /* Algolia DocSearch */
+.DocSearch-Button {
+  display: none !important;
+}
+
 .dark .DocSearch-Container {
   @apply bg-gray-900/30 backdrop-blur;
 }
