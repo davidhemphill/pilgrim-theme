@@ -49,19 +49,19 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
     search: {
       // Local version...
-      provider: 'local',
-      options: {
-        placeholder: 'Search the Nova docs...',
-      },
-
-      // Algolia version...
-      // provider: 'algolia',
+      // provider: 'local',
       // options: {
       //   placeholder: 'Search the Nova docs...',
-      //   indexName: 'laravel_nova',
-      //   appId: 'FGRCZANQVY',
-      //   apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
       // },
+
+      // Algolia version...
+      provider: 'algolia',
+      options: {
+        placeholder: 'Search the Nova docs...',
+        indexName: 'laravel_nova',
+        appId: 'FGRCZANQVY',
+        apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
+      },
     },
   },
 })
