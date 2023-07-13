@@ -7,7 +7,9 @@ export interface ThemeConfig {
   showVersionPicker: boolean
   editLink?: EditLink
   sidebar?: SidebarItem[]
-  search: { provider: 'local'; options?: SearchOptions } | { provider: 'algolia'; options?: AlgoliaSearchOptions }
+  search:
+    | { provider: 'local'; options?: SearchOptions }
+    | { provider: 'algolia'; options?: AlgoliaSearchOptions }
   githubUrl?: string
 }
 
@@ -17,6 +19,7 @@ export interface EditLink {
 }
 
 export interface SearchOptions {
+  placeholder?: string
 }
 
 export interface AlgoliaSearchOptions {
