@@ -4,7 +4,6 @@ export interface ThemeConfig {
   logo: ThemeableImage
   nav?: NavLink[]
   versions?: Version[]
-  showVersionPicker: boolean
   editLink?: EditLink
   sidebar?: SidebarItem[]
   search:

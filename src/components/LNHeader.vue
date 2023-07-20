@@ -47,10 +47,10 @@ function openSearch() {
   )
 }
 
-const navItems = computed(() => site.value.themeConfig.nav)
-const shouldShowVersionPicker = computed(
-  () => theme.value.showVersionPicker && theme.value.versions.length > 1
-)
+const navItems = computed(() => theme.value.nav)
+const shouldShowGitHubLink = computed(() => theme.value.githubUrl?.length > 1)
+const shouldShowNavItems = computed(() => theme.value.nav?.length > 1)
+const shouldShowVersionPicker = computed(() => theme.value.versions?.length > 1)
 
 function setIsOpen(value: boolean): void {
   isOpen.value = value
@@ -63,20 +63,30 @@ function setDotMenuOpen(value: boolean): void {
 
 <template>
   <header
-    class="bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b dark:border-gray-700 sticky top-0 z-50 w-full h-[3.3rem] flex-none">
+    class="bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b dark:border-gray-700 sticky top-0 z-50 w-full h-[3.3rem] flex-none"
+  >
     <div class="max-w-[90rem] px-4 sm:px-6 md:px-8 mx-auto h-[3.3rem]">
       <div class="flex items-center h-[3.3rem] gap-4">
-        <button type="button" @click="setIsOpen(true)" class="md:hidden text-gray-600 dark:text-gray-400">
+        <button
+          type="button"
+          @click="setIsOpen(true)"
+          class="md:hidden text-gray-600 dark:text-gray-400"
+        >
           <span class="sr-only">Navigation</span>
           <Bars3Icon class="flex-shrink-0 w-6" />
         </button>
 
         <Dialog :open="isOpen" @close="setIsOpen" class="relative z-50">
-          <div class="fixed inset-0 bg-white/25 dark:bg-gray-800/30 backdrop-blur" aria-hidden="true" />
+          <div
+            class="fixed inset-0 bg-white/25 dark:bg-gray-800/30 backdrop-blur"
+            aria-hidden="true"
+          />
 
           <div class="fixed inset-0 overflow-y-auto">
             <div class="flex min-h-full">
-              <DialogPanel class="bg-white dark:bg-gray-900 shadow p-6 w-[230px]">
+              <DialogPanel
+                class="bg-white dark:bg-gray-900 shadow p-6 w-[230px]"
+              >
                 <LNSidebar />
               </DialogPanel>
             </div>
@@ -84,48 +94,89 @@ function setDotMenuOpen(value: boolean): void {
         </Dialog>
 
         <slot name="logo">
-          <LNLogo class="flex-shrink-0 h-[24px] text-gray-500 dark:text-white" :alt="site.title" />
+          <LNLogo
+            class="flex-shrink-0 h-[24px] text-gray-500 dark:text-white"
+            :alt="site.title"
+          />
         </slot>
 
         <LNVersionPicker v-if="shouldShowVersionPicker" />
 
-        <div class="ml-auto md:flex items-center md:divide-x md:divide-gray-200 md:dark:divide-gray-700">
-          <div class="hidden md:flex items-center gap-12 px-6">
-            <a v-for="{ text, link } in navItems" :href="link"
-              class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary-500">
+        <div
+          class="ml-auto md:flex items-center md:divide-x md:divide-gray-200 md:dark:divide-gray-700"
+        >
+          <div
+            v-if="shouldShowNavItems"
+            class="hidden md:flex items-center gap-12 px-6"
+          >
+            <a
+              v-for="{ text, link } in navItems"
+              :href="link"
+              class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary-500"
+            >
               {{ text }}
             </a>
           </div>
 
           <div class="hidden md:flex md:items-center gap-6 pl-6">
             <LNThemeSwitcher />
-            <LNGitHubLink />
+            <LNGitHubLink v-if="shouldShowGitHubLink" />
           </div>
 
           <div class="flex items-center gap-3 pl-6">
-            <button type="button" @click="openSearch" class="md:hidden flex-shrink-0 text-gray-600 dark:text-gray-400">
+            <button
+              type="button"
+              @click="openSearch"
+              class="md:hidden flex-shrink-0 text-gray-600 dark:text-gray-400"
+            >
               <span class="sr-only">Search</span>
               <MagnifyingGlassIcon class="w-6" />
             </button>
 
-            <button @click="setDotMenuOpen(true)" type="button"
-              class="md:hidden flex-shrink-0 text-gray-600 dark:text-gray-400">
+            <button
+              @click="setDotMenuOpen(true)"
+              type="button"
+              class="md:hidden flex-shrink-0 text-gray-600 dark:text-gray-400"
+            >
               <span class="sr-only">More</span>
               <EllipsisVerticalIcon class="w-6" />
             </button>
 
-            <Dialog :open="dotMenuOpen" @close="setDotMenuOpen" class="relative z-50">
-              <div class="fixed inset-0 bg-white/25 dark:bg-gray-800/30 backdrop-blur" aria-hidden="true" />
+            <Dialog
+              :open="dotMenuOpen"
+              @close="setDotMenuOpen"
+              class="relative z-50"
+            >
+              <div
+                class="fixed inset-0 bg-white/25 dark:bg-gray-800/30 backdrop-blur"
+                aria-hidden="true"
+              />
 
               <div class="fixed inset-0 overflow-y-auto">
                 <div class="flex justify-end p-6">
-                  <DialogPanel class="bg-white dark:bg-gray-900 shadow p-8 w-[330px] space-y-8 rounded-lg">
-                    <div class="flex flex-col md:hidden gap-4">
-                      <LNHeaderLink v-for="item in navItems" :item="item" />
-                      <LNHeaderLink :item="{ text: 'GitHub', link: githubUrl }" />
+                  <DialogPanel
+                    class="bg-white dark:bg-gray-900 shadow p-8 w-[330px] space-y-8 rounded-lg divide-y divide-gray-200 dark:divide-gray-600"
+                  >
+                    <div
+                      v-if="shouldShowNavItems || shouldShowGitHubLink"
+                      class="flex flex-col md:hidden gap-4"
+                    >
+                      <LNHeaderLink
+                        v-if="shouldShowNavItems"
+                        v-for="item in navItems"
+                        :item="item"
+                      />
+                      <LNHeaderLink
+                        v-if="shouldShowGitHubLink"
+                        :item="{ text: 'GitHub', link: githubUrl }"
+                      />
                     </div>
 
-                    <div class="border-t border-gray-200 dark:border-gray-600 pt-6">
+                    <div
+                      :class="{
+                        'pt-6': shouldShowNavItems || shouldShowGitHubLink,
+                      }"
+                    >
                       <LNMobileThemeSwitcher />
                     </div>
                   </DialogPanel>
