@@ -68,8 +68,7 @@ div[class*='language-'] pre[class*='shiki'] {
 
 .content div[class*='language-'] pre {
   background-color: var(--shiki-color-background);
-  @apply border border-gray-200 dark:border-gray-300
-  /* @apply bg-white border border-transparent; */;
+  @apply border border-gray-200 dark:border-gray-300;
 }
 
 .dark .content div[class*='language-'] pre {
@@ -151,7 +150,7 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .prose .tip {
-  @apply bg-purple-100 border-purple-100 rounded-lg text-gray-700 px-6;
+  @apply bg-purple-100 border-purple-100 rounded-lg text-gray-700 px-6 my-6;
 }
 
 .dark .prose .tip {
