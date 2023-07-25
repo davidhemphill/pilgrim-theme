@@ -104,7 +104,7 @@ div[class*='language-'] pre[class*='shiki'] {
 
 /* Tips */
 .prose .custom-block-title {
-  @apply font-medium;
+  @apply font-semibold;
 }
 
 .prose .custom-block {
