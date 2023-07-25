@@ -91,7 +91,7 @@ div[class*='language-'] pre[class*='shiki'] {
   position: relative;
 }
 
-.content li:before {
+.content ul li:before {
   @apply bg-gray-300;
   content: '';
   width: 0.75em;
