@@ -25,7 +25,7 @@ body {
 }
 
 div[class*='language-'] {
-  @apply shadow rounded-lg;
+  @apply shadow-sm rounded-lg;
   position: relative;
 }
 
