@@ -25,7 +25,6 @@ export default defineConfigWithTheme<ThemeConfig>({
         'https://github.com/davidhemphill/pilgrim-theme/edit/main/playground/:path',
       text: 'Edit this page on GitHub',
     },
-    showVersionPicker: true,
     versions: [
       {
         text: 'v4.0',
