@@ -107,7 +107,7 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .prose .custom-block {
-  @apply py-6 space-y-2 border;
+  @apply my-6 py-6 space-y-2 border;
 }
 
 .prose .custom-block p {
@@ -115,57 +115,50 @@ div[class*='language-'] pre[class*='shiki'] {
 }
 
 .prose .info {
-  @apply bg-blue-100 border-blue-100 rounded-lg text-gray-700 px-6;
+  @apply bg-blue-100 dark:bg-transparent border-blue-200 dark:border-blue-500 rounded-lg text-gray-700 px-6;
 }
 
-.dark .prose .info {
-  @apply bg-transparent border-blue-500 rounded-lg text-blue-300 px-6;
-}
-.dark .prose .info .custom-block-title {
-  @apply text-blue-300;
+.prose .info .custom-block-title {
+  @apply dark:text-blue-300;
 }
 
-.dark .prose .tip p,
-.dark .prose .warning p,
-.dark .prose .danger p,
-.dark .prose .info p {
-  @apply text-gray-300;
+.prose .tip p,
+.prose .warning p,
+.prose .danger p,
+.prose .info p {
+  @apply dark:text-gray-300;
 }
 
 .prose .warning {
-  @apply bg-yellow-100 border-yellow-100 rounded-lg text-gray-700 px-6;
+  @apply bg-yellow-100 dark:bg-transparent border-yellow-300 rounded-lg text-gray-700 px-6;
 }
 
-.dark .prose .warning {
-  @apply bg-transparent border-yellow-300 rounded-lg text-yellow-300 px-6;
+.prose .tip a {
+  @apply dark:border-yellow-300;
 }
 
-.dark .prose .tip a {
-  @apply border-yellow-300;
+.prose .warning .custom-block-title {
+  @apply dark:text-yellow-300;
 }
 
-.dark .prose .info .custom-block-title {
-  @apply text-blue-300;
+.prose .info .custom-block-title {
+  @apply dark:text-blue-300;
 }
 
 .prose .tip {
-  @apply bg-purple-100 border-purple-100 rounded-lg text-gray-700 px-6 my-6;
+  @apply bg-purple-100 border-purple-200 rounded-lg text-gray-700 px-6 dark:bg-transparent dark:border-purple-500 dark:text-purple-300;
 }
 
-.dark .prose .tip {
-  @apply bg-transparent border-purple-500 rounded-lg text-purple-300 px-6;
+.prose .tip a {
+  @apply dark:border-purple-500;
 }
 
-.dark .prose .tip a {
-  @apply border-purple-500;
-}
-
-.dark .prose .tip .custom-block-title {
-  @apply text-purple-300;
+.prose .tip .custom-block-title {
+  @apply dark:text-purple-300;
 }
 
 .prose .danger {
-  @apply bg-red-100 border-red-100 rounded-lg text-red-700 px-6;
+  @apply bg-red-100 border-red-200 rounded-lg text-red-700 px-6 dark:bg-transparent dark:border-red-500 dark:text-red-500;
 }
 
 .prose .danger strong,
@@ -173,16 +166,12 @@ div[class*='language-'] pre[class*='shiki'] {
   @apply text-red-700 font-bold;
 }
 
-.dark .prose .danger {
-  @apply bg-transparent border-red-500 rounded-lg text-red-500 px-6;
+.prose .danger .custom-block-title {
+  @apply dark:text-red-500;
 }
-
-.dark .prose .danger .custom-block-title {
-  @apply text-red-500;
-}
-.dark .prose .danger strong,
-.dark .prose .danger a {
-  @apply text-red-500;
+.prose .danger strong,
+.prose .danger a {
+  @apply dark:text-red-500;
 }
 
 /* Algolia DocSearch */
