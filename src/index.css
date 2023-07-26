@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html.dark {
+  color-scheme: dark;
+}
+html.light {
+  color-scheme: light;
+}
+
 :root {
   --shiki-color-text: #24292e;
   --shiki-color-background: #fff;
