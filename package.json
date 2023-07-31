@@ -1,7 +1,7 @@
 {
-  "name": "pilgrim-theme",
-  "version": "1.0.0",
-  "description": "A theme for VitePress",
+  "name": "@hempworks/pilgrim",
+  "version": "0.1.0",
+  "description": "A Vitepress theme for space pilgrims.",
   "main": "src/index.ts",
   "exports": {
     ".": "./src/index.ts",
