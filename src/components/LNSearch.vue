@@ -5,7 +5,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import { defineAsyncComponent } from 'vue'
 import LNSearchButton from './LNSearchButton.vue'
-import { AlgoliaSearchOptions } from '../config'
+import type { AlgoliaSearchOptions } from '../config'
 
 const LNLocalSearchBox = __VP_LOCAL_SEARCH__
   ? defineAsyncComponent(() => import('./LNLocalSearchBox.vue'))
