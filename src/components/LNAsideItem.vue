@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import type { MenuItem } from '../config'
+type MenuItem = {
+  level: number
+  title: string
+  link: string
+  children?: MenuItem[]
+}
 
 defineProps<{
   headers: MenuItem[]
