@@ -58,4 +58,5 @@ export type HeadingLink = {
   level: number
   title: string
   link: string
+  children?: HeadingLink[]
 }
