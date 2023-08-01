@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { MenuItem } from '../types'
+import type { MenuItem } from '../config'
 
-const props = defineProps<{
+defineProps<{
   headers: MenuItem[]
 }>()
 
