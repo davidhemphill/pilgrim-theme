@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "exports": {
     ".": "./src/index.ts",
+    "tailwindConfig": "./src/tailwind.config.js",
     "./config": {
       "types": "./src/baseConfig.d.ts",
       "default": "./src/baseConfig.js"
