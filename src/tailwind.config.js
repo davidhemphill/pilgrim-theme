@@ -3,7 +3,10 @@ const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['../**/*.{html,js,vue,ts}'],
+  content: [
+    './src/**/*.{html,js,vue,ts}',
+    './node_modules/@hempworks/pilgrim/src/**/*.{html,js,vue,ts}',
+  ],
   darkMode: 'class',
   theme: {
     extend: {
