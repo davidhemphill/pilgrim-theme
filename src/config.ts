@@ -54,9 +54,8 @@ export interface ThemeableImage {
   dark?: string
 }
 
-export type MenuItem = {
+export type HeadingLink = {
   level: number
   title: string
   link: string
-  children?: MenuItem[]
 }

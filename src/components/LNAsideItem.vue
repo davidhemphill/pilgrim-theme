@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { MenuItem } from '../config'
+import type { HeadingLink } from '../config'
 
 defineProps<{
-  headers: MenuItem[]
+  headers: HeadingLink[]
 }>()
 
 function onClick({ target: el }: Event) {

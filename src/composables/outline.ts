@@ -1,14 +1,14 @@
 import type { Ref } from 'vue'
 import { onMounted, onUnmounted, onUpdated } from 'vue'
 import { throttleAndDebounce } from '../support/utils'
-import type { MenuItem } from '../config'
+import type { HeadingLink } from '../config'
 
 const PAGE_OFFSET: number = 33
 
-export function getHeaders(range: number[] = [1, 6]): MenuItem[] {
+export function getHeaders(range: number[] = [1, 6]): HeadingLink[] {
   const headers = [...document.querySelectorAll('.PilgrimDoc h2,h3,h4,h5,h6')]
     .filter((el: Element) => el.id && el.hasChildNodes())
-    .map((el: Element): MenuItem => {
+    .map((el: Element): HeadingLink => {
       const level: number = Number(el.tagName[1])
       return {
         title: serializeHeader(el),
@@ -39,9 +39,9 @@ function serializeHeader(h: Element): string {
 }
 
 export function resolveHeaders(
-  headers: MenuItem[],
+  headers: HeadingLink[],
   range?: false | [number, number]
-): MenuItem[] {
+): HeadingLink[] {
   if (range === false) {
     return []
   }
@@ -55,12 +55,14 @@ export function resolveHeaders(
     typeof levelsRange === 'number'
       ? [levelsRange, levelsRange]
       : levelsRange === 'deep'
-        ? [2, 6]
-        : levelsRange
+      ? [2, 6]
+      : levelsRange
 
-  headers = headers.filter((h: MenuItem) => h.level >= high && h.level <= low)
+  headers = headers.filter(
+    (h: HeadingLink) => h.level >= high && h.level <= low
+  )
 
-  const ret: MenuItem[] = []
+  const ret: HeadingLink[] = []
 
   outer: for (let i: number = 0; i < headers.length; i++) {
     const cur = headers[i]
@@ -68,9 +70,9 @@ export function resolveHeaders(
       ret.push(cur)
     } else {
       for (let j: number = i - 1; j >= 0; j--) {
-        const prev: MenuItem = headers[j]
+        const prev: HeadingLink = headers[j]
         if (prev.level < cur.level) {
-          ; (prev.children || (prev.children = [])).push(cur)
+          ;(prev.children || (prev.children = [])).push(cur)
           continue outer
         }
       }
