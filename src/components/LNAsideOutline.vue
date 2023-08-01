@@ -2,7 +2,7 @@
 import { getHeaders, useActiveAnchor } from '../composables/outline'
 import { ref, shallowRef } from 'vue'
 import LNAsideItem from './LNAsideItem.vue'
-import { HeadingLink } from '../config'
+import type { HeadingLink } from '../config'
 import { onContentUpdated } from 'vitepress'
 
 const headers = shallowRef<HeadingLink[]>([])
