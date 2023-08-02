@@ -48,8 +48,8 @@ function openSearch() {
 }
 
 const navItems = computed(() => theme.value.nav)
-const shouldShowGitHubLink = computed(() => theme.value.githubUrl?.length > 1)
-const shouldShowNavItems = computed(() => theme.value.nav?.length > 1)
+const shouldShowGitHubLink = computed(() => theme.value.githubUrl != false)
+const shouldShowNavItems = computed(() => theme.value.nav?.length > 0)
 const shouldShowVersionPicker = computed(() => theme.value.versions?.length > 1)
 
 function setIsOpen(value: boolean): void {
