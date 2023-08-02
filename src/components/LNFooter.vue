@@ -10,7 +10,7 @@ const editLink = useEditLink()
 const control = usePrevNext()
 
 const hasEditLink = computed(() => {
-  return theme.value.editLink !== false
+  return theme.value.editLink && theme.value.editLink !== false
 })
 </script>
 
