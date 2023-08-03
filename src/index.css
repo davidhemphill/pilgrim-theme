@@ -181,6 +181,10 @@ div[class*='language-'] pre[class*='shiki'] {
   @apply dark:text-red-500;
 }
 
+.prose img {
+  zoom: 50%;
+}
+
 /* Algolia DocSearch */
 .DocSearch-Button {
   display: none !important;
