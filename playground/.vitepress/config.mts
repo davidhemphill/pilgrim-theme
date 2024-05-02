@@ -1,13 +1,13 @@
 import { defineConfigWithTheme } from 'vitepress'
-import { ThemeConfig } from '../../src'
-import config from '../../src/baseConfig'
+import type { ThemeConfig } from '../../src'
+import baseConfig from '../../src/config'
 
 export default defineConfigWithTheme<ThemeConfig>({
-  extends: config,
+  extends: baseConfig,
 
-  title: 'Laravel Nova',
-  description: 'Master Your Universe',
-  base: '/docs/4.0/',
+  title: 'Pilgrim Theme',
+  description: 'Welcome to the Galaxy',
+  base: '/',
 
   themeConfig: {
     logo: {
@@ -54,13 +54,13 @@ export default defineConfigWithTheme<ThemeConfig>({
       // },
 
       // Algolia version...
-      provider: 'algolia',
-      options: {
-        placeholder: 'Search the Nova docs...',
-        indexName: 'laravel_nova',
-        appId: 'FGRCZANQVY',
-        apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
-      },
+      // provider: 'algolia',
+      // options: {
+      //   placeholder: 'Search the Nova docs...',
+      //   indexName: 'laravel_nova',
+      //   appId: 'FGRCZANQVY',
+      //   apiKey: '7c0aaf326992f08ed7bfc461a1b61ef3',
+      // },
     },
   },
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavLink } from '../config'
+import type { NavLink } from '../types'
 
 defineProps<{
   item: NavLink

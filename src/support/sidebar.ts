@@ -1,4 +1,4 @@
-import type { SidebarItem, SidebarLink } from '../config'
+import type { SidebarItem, SidebarLink } from '../types'
 
 export function getFlatSideBarLinks(sidebar: SidebarItem[]): SidebarLink[] {
   let links: SidebarLink[] = []

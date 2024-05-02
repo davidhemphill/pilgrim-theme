@@ -5,7 +5,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import { defineAsyncComponent } from 'vue'
 import LNSearchButton from './LNSearchButton.vue'
-import type { AlgoliaSearchOptions } from '../config'
+import type { AlgoliaSearchOptions } from '../types'
 
 const LNLocalSearchBox = __VP_LOCAL_SEARCH__
   ? defineAsyncComponent(() => import('./LNLocalSearchBox.vue'))
@@ -141,6 +141,8 @@ const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
 <template>
   <div class="sticky top-0 -ml-0.5">
     <div class="h-10 bg-gray-50 dark:bg-gray-900" />
+    Hello {{ __ALGOLIA__ }} {{ __VP_LOCAL_SEARXH__ }}
+    {{ provider }}
     <template v-if="provider === 'local'">
       <LNLocalSearchBox v-if="showSearch" @close="showSearch = false" />
 

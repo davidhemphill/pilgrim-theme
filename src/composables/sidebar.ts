@@ -2,7 +2,7 @@ import { useData } from 'vitepress'
 import { computed } from 'vue'
 import type { ComputedRef } from 'vue'
 import { isActive } from './outline'
-import type { SidebarLink } from '../config'
+import type { SidebarLink } from '../types'
 
 export function useSidebarControl(item: ComputedRef<SidebarLink>) {
   const { page, site } = useData()

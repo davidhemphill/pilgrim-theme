@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSidebarControl } from '../composables/sidebar'
 import { computed } from 'vue'
-import type { SidebarLink } from '../config'
+import type { SidebarLink } from '../types'
 
 const props = defineProps<{
   item: SidebarLink
