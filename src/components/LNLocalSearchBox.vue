@@ -25,7 +25,7 @@ import {
 } from 'vue'
 import type { ModalTranslations } from 'vitepress/types/local-search'
 import { useData } from 'vitepress'
-import { createTranslate } from 'vitepress/dist/client/theme-default/support/translation'
+import { createSearchTranslate} from 'vitepress/dist/client/theme-default/support/translation'
 
 const emit = defineEmits<{
   (e: 'close'): void
@@ -251,7 +251,7 @@ const defaultTranslations: { modal: ModalTranslations } = {
   },
 }
 
-const $t = createTranslate(theme.value.search?.options, defaultTranslations)
+const $t = createSearchTranslate(theme.value.search?.options, defaultTranslations)
 
 // Back
 

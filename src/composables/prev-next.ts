@@ -2,10 +2,10 @@ import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { getFlatSideBarLinks } from '../support/sidebar'
 import { isActive } from './outline'
-import type { NavLink, SidebarLink } from '../config'
+import type { SidebarLink } from '../types'
 
 export function usePrevNext() {
-  const { page, theme, frontmatter } = useData()
+  const { page, theme } = useData()
 
   return computed(() => {
     const sidebar = theme.value.sidebar

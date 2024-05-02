@@ -3,268 +3,241 @@
 @tailwind utilities;
 
 html.dark {
-  color-scheme: dark;
-}
-html.light {
-  color-scheme: light;
+    color-scheme: dark;
 }
 
-:root {
-  --shiki-color-text: #24292e;
-  --shiki-color-background: #fff;
-  --shiki-token-constant: #005cc5;
-  --shiki-token-string: #24292e;
-  --shiki-token-comment: #6a737d;
-  --shiki-token-keyword: #d73a49;
-  --shiki-token-function: #6f42c1;
-  --shiki-token-string-expression: #032f62;
-  --shiki-token-punctuation: #24292e;
-  /* --shiki-token-parameter: #24292e; */
-  /* --shiki-token-link: #d73a49; */
+html.light {
+    color-scheme: light;
 }
 
 html {
-  @apply h-full;
+    @apply h-full;
 }
 
 body {
-  @apply bg-gray-50 dark:bg-gray-900 min-h-full;
+    @apply bg-gray-50 dark:bg-gray-900 min-h-full;
+}
+
+/* Code Highlighting */
+html .shiki {
+    @apply relative rounded-lg overflow-x-auto bg-white border border-transparent shadow
+}
+
+html.dark .shiki {
+    @apply bg-gray-950/50 border-white/10 shadow-none
+}
+
+html .shiki,
+html .shiki span {
+    color: var(--shiki-light);
+    /*background-color: var(--shiki-light-bg);*/
+}
+
+html .shiki,
+html.dark .shiki span {
+    color: var(--shiki-dark);
+    /*background-color: var(--shiki-dark-bg);*/
 }
 
 div[class*='language-'] {
-  @apply shadow-sm rounded-lg;
-  position: relative;
+    position: relative;
 }
 
+/* Copy Code Button */
 div[class*='language-'] .copy {
-  @apply bg-white text-black hidden;
-  position: absolute;
-  right: 0;
-  z-index: 10;
+    @apply hidden absolute right-0 z-[10];
 }
 
 div[class*='language-'] .copy:before {
-  content: 'copy';
+    content: 'copy';
 }
 
+/* Language Tag */
 .lang {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 40;
-  @apply text-gray-400 opacity-75 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full;
+    @apply absolute right-0 top-0 z-[40] text-gray-400 opacity-75 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full;
 }
 
-div[class*='language-'] pre,
-div[class*='language-'] pre[class*='shiki'] {
-  position: relative;
-  z-index: 1;
-}
-
-/* Table of Contents */
+/*!* Table of Contents *!*/
 @screen xl {
-  .table-of-contents {
-    @apply hidden;
-  }
+    .table-of-contents {
+        @apply hidden;
+    }
 }
 
 /* Content Area */
-.content {
-}
-
-.content div[class*='language-'] pre {
-  background-color: var(--shiki-color-background);
-  @apply border border-gray-200 dark:border-gray-300;
-}
-
-.dark .content div[class*='language-'] pre {
-  filter: invert(100%) hue-rotate(180deg);
-}
-
-.content p > code,
-.content li > code {
-  @apply font-semibold
-/*  @apply whitespace-nowrap font-semibold bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 mx-0.5 px-1 py-0.5 rounded text-gray-600 dark:text-gray-400 !important;*/;
-}
-/*.content p > code:before,*/
-/*.content p > code:after,*/
-/*.content li > code:before,*/
-/*.content li > code:after {*/
-/*  content: '';*/
-/*}*/
-
 .content li {
-  position: relative;
+    position: relative;
 }
 
 .content ul li:before {
-  @apply bg-gray-300;
-  content: '';
-  width: 0.75em;
-  height: 0.125em;
-  position: absolute;
-  top: calc(0.875em - 0.0625em);
-  left: 0;
-  border-radius: 999px;
+    @apply bg-gray-300;
+    content: '';
+    width: 0.75em;
+    height: 0.125em;
+    position: absolute;
+    top: calc(0.875em - 0.0625em);
+    left: 0;
+    border-radius: 999px;
 }
 
 /* Tips */
 .prose .custom-block-title {
-  @apply font-semibold;
+    @apply font-semibold;
 }
 
 .prose .custom-block {
-  @apply my-6 py-6 space-y-2 border;
+    @apply my-6 py-6 space-y-2 border;
 }
 
 .prose .custom-block p {
-  @apply my-0;
+    @apply my-0;
 }
 
 .prose .info {
-  @apply bg-blue-100 dark:bg-transparent border-blue-200 dark:border-blue-500 rounded-lg text-gray-700 px-6;
+    @apply bg-blue-100 dark:bg-transparent border-blue-200 dark:border-blue-500 rounded-lg text-gray-700 px-6;
 }
 
 .prose .info .custom-block-title {
-  @apply dark:text-blue-300;
+    @apply dark:text-blue-300;
 }
 
 .prose .tip p,
 .prose .warning p,
 .prose .danger p,
 .prose .info p {
-  @apply dark:text-gray-300;
+    @apply dark:text-gray-300;
 }
 
 .prose .warning {
-  @apply bg-yellow-100 dark:bg-transparent border-yellow-300 rounded-lg text-gray-700 px-6;
+    @apply bg-yellow-100 dark:bg-transparent border-yellow-300 rounded-lg text-gray-700 px-6;
 }
 
 .prose .tip a {
-  @apply dark:border-yellow-300;
+    @apply dark:border-yellow-300;
 }
 
 .prose .warning .custom-block-title {
-  @apply dark:text-yellow-300;
+    @apply dark:text-yellow-300;
 }
 
 .prose .info .custom-block-title {
-  @apply dark:text-blue-300;
+    @apply dark:text-blue-300;
 }
 
 .prose .tip {
-  @apply bg-purple-100 border-purple-200 rounded-lg text-gray-700 px-6 dark:bg-transparent dark:border-purple-500 dark:text-purple-300;
+    @apply bg-purple-100 border-purple-200 rounded-lg text-gray-700 px-6 dark:bg-transparent dark:border-purple-500 dark:text-purple-300;
 }
 
 .prose .tip a {
-  @apply dark:border-purple-500;
+    @apply dark:border-purple-500;
 }
 
 .prose .tip .custom-block-title {
-  @apply dark:text-purple-300;
+    @apply dark:text-purple-300;
 }
 
 .prose .danger {
-  @apply bg-red-100 border-red-200 rounded-lg text-red-700 px-6 dark:bg-transparent dark:border-red-500 dark:text-red-500;
+    @apply bg-red-100 border-red-200 rounded-lg text-red-700 px-6 dark:bg-transparent dark:border-red-500 dark:text-red-500;
 }
 
 .prose .danger strong,
 .prose .danger a {
-  @apply text-red-700 font-bold;
+    @apply text-red-700 font-bold;
 }
 
 .prose .danger .custom-block-title {
-  @apply dark:text-red-500;
+    @apply dark:text-red-500;
 }
+
 .prose .danger strong,
 .prose .danger a {
-  @apply dark:text-red-500;
+    @apply dark:text-red-500;
 }
 
 .prose img {
-  zoom: 50%;
+    zoom: 50%;
 }
 
 /* Algolia DocSearch */
 .DocSearch-Button {
-  display: none !important;
+    display: none !important;
 }
 
 .DocSearch-Container {
-  @apply bg-white/90 dark:bg-gray-800/30 backdrop-blur;
+    @apply bg-white/90 dark:bg-gray-800/30 backdrop-blur;
 }
 
 .DocSearch .DocSearch-Modal {
-  @apply bg-white dark:bg-gray-800 shadow-none max-w-4xl rounded-xl;
+    @apply bg-white dark:bg-gray-800 shadow-none max-w-4xl rounded-xl;
 }
 
 .DocSearch .DocSearch-Form {
-  @apply bg-transparent rounded-t-xl rounded-b-none;
+    @apply bg-transparent rounded-t-xl rounded-b-none;
 }
 
 .DocSearch .DocSearch-Input {
-  @apply dark:text-gray-300 dark:placeholder:text-gray-400 px-4;
+    @apply dark:text-gray-300 dark:placeholder:text-gray-400 px-4;
 }
 
 .DocSearch .DocSearch-SearchBar {
-  @apply bg-transparent py-2 px-3 border-b border-gray-200 dark:border-gray-700;
+    @apply bg-transparent py-2 px-3 border-b border-gray-200 dark:border-gray-700;
 }
 
 .DocSearch .DocSearch-Form {
-  @apply shadow-none;
+    @apply shadow-none;
 }
 
 .DocSearch .DocSearch-NoResults {
-  @apply flex flex-col items-center justify-center;
+    @apply flex flex-col items-center justify-center;
 }
 
 /* Algolia Logo */
 .DocSearch .DocSearch-Logo svg {
-  @apply text-red-500 !important;
+    @apply text-red-500 !important;
 }
 
 /* Search Footer */
 .DocSearch .DocSearch-Footer {
-  @apply bg-transparent shadow-none border-t dark:border-gray-700;
+    @apply bg-transparent shadow-none border-t dark:border-gray-700;
 }
 
 /* Search Reset Button */
 .DocSearch .DocSearch-Reset {
-  @apply text-gray-600 dark:text-white;
+    @apply text-gray-600 dark:text-white;
 }
 
 /* Search Results Dropdown */
 .DocSearch .DocSearch-Dropdown {
-  @apply px-6;
+    @apply px-6;
 }
 
 /* Search Hits */
 .DocSearch .DocSearch-Hit-source {
-  @apply bg-transparent text-gray-600 dark:text-gray-400 uppercase tracking-widest font-bold text-xs py-6;
+    @apply bg-transparent text-gray-600 dark:text-gray-400 uppercase tracking-widest font-bold text-xs py-6;
 }
 
 .DocSearch .DocSearch-Hit {
-  @apply rounded-none shadow-none dark:text-white;
+    @apply rounded-none shadow-none dark:text-white;
 }
 
 .DocSearch .DocSearch-Hit-title {
-  @apply text-gray-400;
+    @apply text-gray-400;
 }
 
 .DocSearch .DocSearch-Hit-title mark {
-  @apply text-primary-500;
+    @apply text-primary-500;
 }
 
 .DocSearch .DocSearch-Hit a {
-  @apply dark:bg-gray-800 rounded-lg shadow-none;
+    @apply dark:bg-gray-800 rounded-lg shadow-none;
 }
 
 .DocSearch .DocSearch-Hit[aria-selected='true'] a {
-  @apply bg-primary-500;
+    @apply bg-primary-500;
 }
 
 /* Search Shortcuts */
 .DocSearch .DocSearch-Commands-Key {
-  background: none;
-  @apply bg-gray-100 dark:bg-gray-900 shadow-none;
+    background: none;
+    @apply bg-gray-100 dark:bg-gray-900 shadow-none;
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HeadingLink } from '../config'
+import type { HeadingLink } from '../types'
 
 defineProps<{
   headers: HeadingLink[]

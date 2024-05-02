@@ -1,21 +1,20 @@
 <script setup lang="ts">
 import '@docsearch/css'
-import { onKeyStroke } from '@vueuse/core'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { useData } from 'vitepress'
-import { defineAsyncComponent } from 'vue'
+import {onKeyStroke} from '@vueuse/core'
+import {computed, defineAsyncComponent, onMounted, onUnmounted, ref} from 'vue'
+import {useData} from 'vitepress'
 import LNSearchButton from './LNSearchButton.vue'
-import type { AlgoliaSearchOptions } from '../config'
+import type {AlgoliaSearchOptions} from '../types'
 
 const LNLocalSearchBox = __VP_LOCAL_SEARCH__
-  ? defineAsyncComponent(() => import('./LNLocalSearchBox.vue'))
-  : () => null
+    ? defineAsyncComponent(() => import('./LNLocalSearchBox.vue'))
+    : () => null
 
 const LNAlgoliaSearchBox = __ALGOLIA__
-  ? defineAsyncComponent(() => import('./LNAlgoliaSearchBox.vue'))
-  : () => null
+    ? defineAsyncComponent(() => import('./LNAlgoliaSearchBox.vue'))
+    : () => null
 
-const { theme, localeIndex } = useData()
+const {theme} = useData()
 
 // to avoid loading the docsearch js upfront (which is more than 1/3 of the
 // payload), we delay initializing it until the user has actually clicked or
@@ -37,8 +36,8 @@ const preconnect = () => {
     preconnect.id = id
     preconnect.rel = 'preconnect'
     preconnect.href = `https://${
-      ((theme.value.search?.options as AlgoliaSearchOptions) ??
-        theme.value.algolia)!.appId
+        ((theme.value.search?.options as AlgoliaSearchOptions) ??
+            theme.value.algolia)!.appId
     }-dsn.algolia.net`
     preconnect.crossOrigin = ''
     document.head.appendChild(preconnect)
@@ -54,8 +53,8 @@ onMounted(() => {
 
   const handleSearchHotKey = (event: KeyboardEvent) => {
     if (
-      (event.key.toLowerCase() === 'k' && (event.metaKey || event.ctrlKey)) ||
-      (!isEditingContent(event) && event.key === '/')
+        (event.key.toLowerCase() === 'k' && (event.metaKey || event.ctrlKey)) ||
+        (!isEditingContent(event) && event.key === '/')
     ) {
       event.preventDefault()
       load()
@@ -73,10 +72,10 @@ onMounted(() => {
 })
 
 function load() {
-  // if (!loaded.value) {
-  loaded.value = true
-  setTimeout(poll, 16)
-  // }
+  if (!loaded.value) {
+    loaded.value = true
+    setTimeout(poll, 16)
+  }
 }
 
 function poll() {
@@ -100,10 +99,10 @@ function isEditingContent(event: KeyboardEvent): boolean {
   const tagName = element.tagName
 
   return (
-    element.isContentEditable ||
-    tagName === 'INPUT' ||
-    tagName === 'SELECT' ||
-    tagName === 'TEXTAREA'
+      element.isContentEditable ||
+      tagName === 'INPUT' ||
+      tagName === 'SELECT' ||
+      tagName === 'TEXTAREA'
   )
 }
 
@@ -126,43 +125,34 @@ if (__VP_LOCAL_SEARCH__) {
   })
 }
 
-const metaKey = ref(`'Meta'`)
-
-onMounted(() => {
-  // meta key detect (same logic as in @docsearch/js)
-  metaKey.value = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
-    ? `'⌘'`
-    : `'Ctrl'`
-})
-
 const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
 </script>
 
 <template>
   <div class="sticky top-0 -ml-0.5">
-    <div class="h-10 bg-gray-50 dark:bg-gray-900" />
+    <div class="h-10 bg-gray-50 dark:bg-gray-900"/>
     <template v-if="provider === 'local'">
-      <LNLocalSearchBox v-if="showSearch" @close="showSearch = false" />
+      <LNLocalSearchBox v-if="showSearch" @close="showSearch = false"/>
 
       <div id="local-search">
-        <LNSearchButton @click="showSearch = true" :placeholder="buttonText" />
+        <LNSearchButton @click="showSearch = true" :placeholder="buttonText"/>
       </div>
     </template>
 
     <template v-else-if="provider === 'algolia'">
       <div class="LNSearch">
         <LNAlgoliaSearchBox
-          v-if="loaded"
-          :algolia="theme.search?.options"
-          @vue:beforeMount="actuallyLoaded = true"
+            v-if="loaded"
+            :algolia="theme.search?.options"
+            @vue:beforeMount="actuallyLoaded = true"
         />
       </div>
 
       <!--      <div v-if="!actuallyLoaded" id="docsearch">-->
-      <LNSearchButton @click="load" :placeholder="buttonText" />
+      <LNSearchButton @click="load" :placeholder="buttonText"/>
       <!--      </div>-->
     </template>
 
-    <div class="h-8 bg-gradient-to-b from-gray-50 dark:from-gray-900" />
+    <div class="h-8 bg-gradient-to-b from-gray-50 dark:from-gray-900"/>
   </div>
 </template>

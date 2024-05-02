@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
@@ -9,8 +10,12 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
-    "jsx": "preserve",
-    "lib": ["esnext", "dom", "dom.iterable"]
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
+    "paths": {
+      "vitepress-shopware-docs": ["src/index.ts"]
+    }
   },
-  "exclude": ["**/node_modules/**", "**/dist/**", "template"]
+  "include": ["src", "types", "playground/.vitepress/theme"],
+  "exclude": ["node_modules",],
 }
