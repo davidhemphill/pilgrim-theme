@@ -141,8 +141,6 @@ const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
 <template>
   <div class="sticky top-0 -ml-0.5">
     <div class="h-10 bg-gray-50 dark:bg-gray-900" />
-    Hello {{ __ALGOLIA__ }} {{ __VP_LOCAL_SEARXH__ }}
-    {{ provider }}
     <template v-if="provider === 'local'">
       <LNLocalSearchBox v-if="showSearch" @close="showSearch = false" />
 
