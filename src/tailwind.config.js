@@ -11,7 +11,7 @@ module.exports = {
     darkMode: 'class',
     theme: {
         extend: {
-            colors: {gray: colors.slate, blue: colors.sky, primary: colors.sky},
+            colors: {gray: colors.slate, blue: colors.sky, primary: colors.pink},
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
