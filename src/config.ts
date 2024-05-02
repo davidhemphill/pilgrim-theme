@@ -1,62 +1,25 @@
-import type { PageData } from 'vitepress'
+export default {
+  head: [
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+      },
+    ],
+  ],
 
-export interface ThemeConfig {
-  logo: ThemeableImage
-  nav?: NavLink[]
-  versions?: Version[]
-  editLink?: EditLink
-  sidebar?: SidebarItem[]
-  search:
-    | { provider: 'local'; options?: SearchOptions }
-    | { provider: 'algolia'; options?: AlgoliaSearchOptions }
-  githubUrl?: string
-}
-
-export interface EditLink {
-  pattern: string | ((payload: PageData) => string)
-  text?: string
-}
-
-export interface SearchOptions {
-  placeholder?: string
-}
-
-export interface AlgoliaSearchOptions {
-  appId?: string
-  apiKey: string
-  indexName: string
-  placeholder?: string
-}
-
-export type SidebarItem = {
-  text: string
-  items: SidebarLink[]
-}
-
-export type SidebarLink = {
-  text: string
-  link: string
-}
-
-export type NavLink = {
-  text: string
-  link: string
-}
-
-export type Version = {
-  text: string
-  link: string
-  current?: boolean
-}
-
-export interface ThemeableImage {
-  light: string
-  dark?: string
-}
-
-export type HeadingLink = {
-  level: number
-  title: string
-  link: string
-  children?: HeadingLink[]
+  markdown: {
+    lineNumbers: false,
+    // theme: 'github-light'
+    theme: {
+      light: 'github-light',
+      dark: 'github-dark'
+    }
+  },
 }
