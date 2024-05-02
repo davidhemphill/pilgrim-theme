@@ -6,7 +6,11 @@
   "exports": {
     ".": "./src/index.ts",
     "./tailwind.config": "./src/tailwind.config.js",
-    "./config": "./src/config.ts"
+    "./config": {
+      "import": "./dist/config.mjs",
+      "require": "./dist/config.cjs",
+      "types": "./dist/config.d.ts"
+    }
   },
   "files": [
     "src",
@@ -17,14 +21,14 @@
   "scripts": {
     "type": "tsc --noEmit",
     "dev": "vitepress dev playground",
-    "build": "",
+    "build": "rimraf dist && tsup src/config.ts --dts --format cjs,esm --minify --outDir dist",
     "serve": "vitepress build playground && vitepress serve playground",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@docsearch/js": "^3.6.0",
-    "@heroicons/vue": "^2.1.3",
-    "@headlessui/vue": "^1.7.21"
+    "@headlessui/vue": "^1.7.21",
+    "@heroicons/vue": "^2.1.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
@@ -32,9 +36,12 @@
     "flexsearch": "^0.7.43",
     "mark.js": "^8.11.1",
     "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
     "tailwindcss": "^3.4.3",
+    "tsup": "^8.0.2",
     "vitepress": "^1.1.4",
-    "vitepress-plugin-search": "^1.0.4-alpha.22"
+    "vitepress-plugin-search": "^1.0.4-alpha.22",
+    "vue": "^3.4.26"
   },
   "postcss": {
     "plugins": {
@@ -45,6 +52,7 @@
     }
   },
   "peerDependencies": {
+    "typescript": "^4.6.3",
     "vitepress": "^1.1.4"
   }
 }
