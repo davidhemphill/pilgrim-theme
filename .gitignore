@@ -2,3 +2,4 @@
 /.idea
 playground/.vitepress/cache
 /.vitepress/cache
+/dist
