@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --vp-c-bg: theme(colors.gray.50) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --vp-c-bg: theme(colors.gray.900) !important;
+    }
+}
+
 html.dark {
     color-scheme: dark;
 }
