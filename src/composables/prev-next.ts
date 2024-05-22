@@ -1,16 +1,16 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
+import { useSidebar } from 'vitepress/theme'
 import { getFlatSideBarLinks } from '../support/sidebar'
 import { isActive } from './outline'
 import type { SidebarLink } from '../types'
 
 export function usePrevNext() {
-  const { page, theme } = useData()
+  const { page } = useData()
+  const { sidebarGroups } = useSidebar()
 
   return computed(() => {
-    const sidebar = theme.value.sidebar
-
-    const candidates = getFlatSideBarLinks(sidebar)
+    const candidates = getFlatSideBarLinks(sidebarGroups.value)
 
     const index = candidates.findIndex(function (link: SidebarLink) {
       return isActive(page.value.relativePath, link.link)

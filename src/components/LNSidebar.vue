@@ -1,22 +1,13 @@
 <script setup lang="ts">
 import LNSidebarItem from './LNSidebarItem.vue'
-import { computed } from 'vue'
-import { useData, withBase } from 'vitepress'
+import { useSidebar } from 'vitepress/theme'
 
-const { theme } = useData()
-
-const sidebarItems = theme.value.sidebar.map(item => ({
-  text: item.text,
-  items: item.items.map(i => ({
-    ...i,
-    link: withBase(i.link),
-  })),
-}))
+const { sidebarGroups } = useSidebar()
 </script>
 
 <template>
   <nav class="flex flex-col gap-6">
-    <div v-for="{ text, items } in sidebarItems">
+    <div v-for="{ text, items } in sidebarGroups">
       <span class="text-gray-700 dark:text-gray-400 font-bold text-sm">
         {{ text }}
       </span>
